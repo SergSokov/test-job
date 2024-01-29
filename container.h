@@ -50,7 +50,7 @@ public:
     {
         for(int i{0}; i < listSize_; i++)
         {
-            //Unsatysfing way of determaning radii
+            //Unsatysfing way of determining radii
             float radius = (rand() % ((int)(maxR_ - minR_) * 1000)) / 1000.0;
             float Radius = (rand() % ((int)(2 * maxR_) * 1000)) / 1000.0;
             float step = (rand() % (314 * 10)) / 1000.0;
@@ -113,7 +113,6 @@ public:
         vector<float> list;
         for(auto& val : data)
         {
-            cout << val->getRadius() << " : ";
             list.push_back(val->getRadius());
         }
         return list;
@@ -121,19 +120,11 @@ public:
 
     const float getRadiiSum()
     {
-        float sum{0.f};
-        for(auto val = data.begin() ; val != data.end(); val++)
-        {
-            sum += (*val)->getRadius();
-        }
-
-
-        sum = std::accumulate(data.begin(), data.end(), 0.f, [](const float a, Circle* c)
+        return std::accumulate(data.begin(), data.end(), 0.f, [](const float a, Circle* c)
         {
             auto v = c;
             return a + c->getRadius();
         });
-        return sum;
     }
 
 

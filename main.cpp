@@ -18,8 +18,8 @@ int main()
     Container* c2 = new Container();
     c2 = c1->getListOfType(Container::Type::CIRCLE);
     c2->sort();
-        auto rList = c2->getRadiiList();
 
+    auto rList = c2->getRadiiList();
     cout << "Radii for C2: ";
     for(float r : rList)
         cout << r << " : ";
